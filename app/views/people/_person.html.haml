@@ -13,5 +13,6 @@
       = person.bio.html_safe
   .speaker__links
     - person.social_info.each do |type, url|
-      %a.speaker__social{ href: url, target: '_blank' }
-        %i.fa{ class: "fa-#{type}" }
+      - if !(url.nil? || url.empty?)
+        %a.speaker__social{ href: url, target: '_blank' }
+          %i.fa{ class: "fa-#{type}" }
